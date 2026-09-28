@@ -1,0 +1,2 @@
+# Old path from the previous site. Point the apex domain at www in Cloudflare (Rules > Redirect Rules).
+/home  /  301

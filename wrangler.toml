@@ -1,0 +1,8 @@
+# Cloudflare Pages project. Deploy with: npm run deploy
+name = "coffee-compound"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "out"
+
+# Contact form email (set as secrets, not here):
+#   npx wrangler pages secret put RESEND_API_KEY
+#   npx wrangler pages secret put CONTACT_TO_EMAIL
