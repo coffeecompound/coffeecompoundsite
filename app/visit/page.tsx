@@ -31,6 +31,10 @@ const FAQS: Faq[] = [
   },
   { q: "Do you have a conference room?", a: `Yes. Ask about reserving our conference room for a meeting. <a href="/contact/">Send us a note</a> or call ${SITE.phone}.` },
   { q: "Are you open on Sundays?", a: "No. We are closed on Sundays." },
+  {
+    q: "Is The Coffee Compound wheelchair accessible?",
+    a: "Yes. We have a wheelchair-accessible entrance, parking, restroom, and seating. The drive-thru is another easy option.",
+  },
 ];
 
 export default function VisitPage() {

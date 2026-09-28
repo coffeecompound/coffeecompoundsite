@@ -57,7 +57,7 @@ Using a new Material Symbols icon? Add its name to `lib/icons.ts`. The font is s
 
 - [ ] Confirm hours with the owners. Public listings disagree (see `lib/site.ts`).
 - [ ] Replace the placeholder photos in `public/assets/img/` with real photos of the shop, drinks, and owners. Keep the same file names.
-- [ ] Replace `reviewUrl` in `lib/site.ts` with the Google Business Profile review short link.
+- [ ] Claim the Google Business Profile (it's currently unclaimed), then put its review short link in `reviewUrl` in `lib/site.ts`.
 - [ ] Add prices to `content/menu.ts` if the owners want them online.
 - [ ] Set the contact-form secrets.
 - [ ] Verify the site in Google Search Console and Bing Webmaster Tools, then submit `/sitemap.xml`.

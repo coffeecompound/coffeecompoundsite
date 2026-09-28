@@ -36,11 +36,27 @@ Downtown Ogden has strong competition: Grounds for Coffee and Cuppa on 25th Stre
 
 ## Step 1: Google Business Profile (highest impact, do first)
 
-1. **Claim and verify** the profile at business.google.com, if the owners haven't already.
+**Listing:** [The Coffee Compound on Google Maps](https://www.google.com/maps?cid=1023342798298354265)
+
+What the listing showed on September 28, 2026:
+
+| Item | Status |
+| --- | --- |
+| Claimed by owner | **No.** The listing shows a "Claim this business" button. |
+| Primary category | Coffee shop (correct) |
+| Rating | 4.6 stars |
+| Address, phone, website | Correct: 2417 Grant Ave, (801) 317-4880, thecoffeecompound.com |
+| Hours | Monday 7:30 AM–3 PM matches the site. Other days weren't visible without signing in. |
+| Accessibility | Wheelchair-accessible entrance, parking, restroom, and seating |
+| Also listed | "Located in: R L Courts", plus code 62CG+WH Ogden |
+
+Most of the steps below require a claimed profile, so claiming it comes first.
+
+1. **Claim the profile.** Open the listing, click "Claim this business", and verify by phone, video, or postcard. Or start at business.google.com. An unclaimed profile can't post updates, add photos as the owner, reply to reviews, or get a review link, and anyone can suggest edits to it.
 2. **Fix the hours.** Listings currently disagree. joe.coffee says Mon–Fri 7:30–3 and Sat 8–2. Visit Ogden says Mon–Sat 8–2. Pick the true hours, then update Google, the website, Yelp, Visit Ogden, Tripadvisor, Facebook, and joe.coffee to match. Add holiday hours before every holiday.
-3. **Categories.** Set the primary category to **Coffee shop**. Add secondary categories that are true, such as **Cafe**, **Espresso bar**, and **Breakfast restaurant**.
-4. **Attributes.** Turn on drive-through, Wi-Fi, dine-in, takeout, **Identifies as veteran-led**, and **Identifies as women-led**.
-5. **Links.** Set the website to `https://www.thecoffeecompound.com/` and the menu link to `https://www.thecoffeecompound.com/menu/`.
+3. **Categories.** The primary category is already **Coffee shop**. Keep it. Add secondary categories that are true, such as **Cafe**, **Espresso bar**, and **Breakfast restaurant**.
+4. **Attributes.** The wheelchair-accessibility attributes are already set. Also turn on drive-through, Wi-Fi, dine-in, takeout, **Identifies as veteran-led**, and **Identifies as women-led**.
+5. **Links.** Change the website from `thecoffeecompound.com` to the exact canonical URL `https://www.thecoffeecompound.com/` and the menu link to `https://www.thecoffeecompound.com/menu/`.
 6. **Description.** Use a plain sentence with the key facts: "Independent, veteran- and woman-owned coffee shop with a drive-thru in downtown Ogden, one block from Historic 25th Street. Fair trade espresso, homemade frozen hot chocolate with scratch whipped cream, and hot bagel sandwiches."
 7. **Photos.** Upload real photos: the storefront from Grant Ave, the drive-thru window, the interior, drinks, food, and the owners. Add a few new ones every week or two. Profiles with fresh photos get more engagement.
 8. **Products.** Add the menu items as Products with photos, especially the frozen hot chocolate, chai chiller, and Asiago bagel sandwich.
@@ -50,7 +66,7 @@ Downtown Ogden has strong competition: Grounds for Coffee and Cuppa on 25th Stre
 ## Step 2: Reviews (the second biggest lever)
 
 - **Ask every day.** Put a QR code linking to the Google review page at the register and the drive-thru window. A small table card saying "Loved your drink? Tell Google" works.
-- **Get the short link.** In the Business Profile, use "Ask for reviews" to get the `g.page/r/.../review` link. Put it in `lib/site.ts` as `reviewUrl`.
+- **Get the short link.** After claiming the profile, use "Ask for reviews" to get the `g.page/r/.../review` link. Put it in `lib/site.ts` as `reviewUrl`. For now the site's review buttons open the Google listing, which has a "Write a review" button.
 - **Recency matters more than volume.** A steady few reviews a week beats a burst followed by months of silence.
 - **Reply to every review,** good and bad, within a few days. Mention the drink or detail they named naturally.
 - **Follow Google's rules.** Don't offer discounts for reviews, and don't ask only happy customers. Both can get reviews removed.

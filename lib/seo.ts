@@ -68,7 +68,17 @@ export function businessSchema() {
     openingHoursSpecification: SITE.hours
       .filter((h) => h.open)
       .map((h) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: h.days, opens: h.open, closes: h.close })),
-    amenityFeature: ["Drive-through", "Free Wi-Fi", "Indoor seating", "Conference room"].map((name) => ({
+    amenityFeature: [
+      "Drive-through",
+      "Free Wi-Fi",
+      "Indoor seating",
+      "Conference room",
+      // Accessibility attributes listed on the Google Business Profile.
+      "Wheelchair-accessible entrance",
+      "Wheelchair-accessible parking",
+      "Wheelchair-accessible restroom",
+      "Wheelchair-accessible seating",
+    ].map((name) => ({
       "@type": "LocationFeatureSpecification",
       name,
       value: true,
