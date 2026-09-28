@@ -1,8 +1,8 @@
 # The Coffee Compound — website
 
 Next.js 16 (App Router) site for The Coffee Compound, 2417 Grant Ave, Ogden, UT.
-It builds to a fully static site (`output: "export"`) and deploys to **Cloudflare Pages**.
-The contact form is handled by a Cloudflare Pages Function in `functions/api/contact.ts`.
+It builds to a fully static site (`output: "export"`) and deploys as a **Cloudflare Worker with static assets**.
+The Worker in `worker/index.ts` serves the pages from `./out` and handles the contact form at `/api/contact`.
 
 ## Commands
 
@@ -10,30 +10,29 @@ The contact form is handled by a Cloudflare Pages Function in `functions/api/con
 npm install
 npm run dev        # local dev server at http://localhost:3000
 npm run build      # static export to ./out (also checks the icon list)
-npm run preview    # build, then serve ./out + the contact function with Wrangler at http://localhost:8788
-npm run deploy     # build, then deploy ./out to Cloudflare Pages with Wrangler
+npm run preview    # build, then run the Worker locally with Wrangler at http://localhost:8787
+npm run deploy     # build, then deploy to Cloudflare with Wrangler
 ```
 
-## Deploying to Cloudflare Pages
+## Deploying to Cloudflare
 
-**Option A: Git integration (recommended).** In the Cloudflare dashboard go to Workers & Pages → Create → Pages → Connect to Git, pick this repo, and set:
+**Git integration (recommended).** In the Cloudflare dashboard go to Workers & Pages → Create → Import a repository, pick this repo, and set:
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | Next.js (Static HTML Export) |
 | Build command | `npm run build` |
-| Build output directory | `out` |
-| Environment variable | `NODE_VERSION` = `22` |
+| Deploy command | `npx wrangler deploy` |
+| Non-production branch deploy command | `npx wrangler versions upload` |
 
-The `functions/` folder is picked up automatically.
+The Worker name in `wrangler.toml` is `coffeecompoundsite`. Keep it matching the project name in the dashboard.
 
-**Option B: CLI.** `npx wrangler login`, then `npm run deploy`.
+**CLI.** `npx wrangler login`, then `npm run deploy`.
 
 **Then:**
 
-1. Add the custom domains `www.thecoffeecompound.com` and `thecoffeecompound.com` to the Pages project.
+1. Add the custom domains `www.thecoffeecompound.com` and `thecoffeecompound.com` to the Worker (Settings → Domains & Routes).
 2. Add a Redirect Rule so `thecoffeecompound.com/*` goes 301 to `https://www.thecoffeecompound.com/$1` (the canonical host).
-3. Set the contact-form secrets (Pages → Settings → Variables and Secrets):
+3. Set the contact-form secrets (Worker → Settings → Variables and Secrets, or `npx wrangler secret put NAME`):
    - `RESEND_API_KEY` — from [resend.com](https://resend.com) (free tier is plenty)
    - `CONTACT_TO_EMAIL` — e.g. `coffee@thecoffeecompound.com`
    - `CONTACT_FROM_EMAIL` (optional) — a sender on a domain verified in Resend

@@ -93,7 +93,7 @@ Links from Ogden websites tell Google the shop is locally prominent.
 ## Step 6: Measure
 
 1. Verify the domain in **Google Search Console** and submit `https://www.thecoffeecompound.com/sitemap.xml`. Do the same in **Bing Webmaster Tools**.
-2. Turn on **Cloudflare Web Analytics** in the Pages project. It's free and needs no cookie banner.
+2. Turn on **Cloudflare Web Analytics** for the site. It's free and needs no cookie banner.
 3. Once a month, check:
    - Business Profile insights: calls, direction requests, and website clicks
    - Search Console: which searches show the site, especially "drive thru", "frozen hot chocolate", and "25th street"

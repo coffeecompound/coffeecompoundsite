@@ -1,8 +1,16 @@
-# Cloudflare Pages project. Deploy with: npm run deploy
-name = "coffee-compound"
+# Cloudflare Worker with static assets.
+# Build: npm run build   Deploy: npx wrangler deploy
+name = "coffeecompoundsite"
+main = "worker/index.ts"
 compatibility_date = "2026-09-01"
-pages_build_output_dir = "out"
 
-# Contact form email (set as secrets, not here):
-#   npx wrangler pages secret put RESEND_API_KEY
-#   npx wrangler pages secret put CONTACT_TO_EMAIL
+[assets]
+directory = "./out"
+binding = "ASSETS"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
+run_worker_first = ["/api/*"]
+
+# Contact form email. Set as secrets, not here:
+#   npx wrangler secret put RESEND_API_KEY
+#   npx wrangler secret put CONTACT_TO_EMAIL

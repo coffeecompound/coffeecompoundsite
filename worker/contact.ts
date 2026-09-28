@@ -1,17 +1,17 @@
-// Cloudflare Pages Function: POST /api/contact
+// Contact form handler: POST /api/contact
 // Emails contact-form submissions to the shop through Resend (https://resend.com).
-// Set these in the Cloudflare dashboard (Pages > Settings > Variables and Secrets) or with `wrangler pages secret put`:
+// Set these in the Cloudflare dashboard (Worker > Settings > Variables and Secrets) or with `npx wrangler secret put NAME`:
 //   RESEND_API_KEY    Resend API key
 //   CONTACT_TO_EMAIL  inbox that receives messages, e.g. coffee@thecoffeecompound.com
 //   CONTACT_FROM_EMAIL (optional) verified sender, e.g. "Website <web@thecoffeecompound.com>"
 
-interface Env {
+export interface Env {
   RESEND_API_KEY?: string;
   CONTACT_TO_EMAIL?: string;
   CONTACT_FROM_EMAIL?: string;
 }
 
-type Ctx = { request: Request; env: Env };
+
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
@@ -19,7 +19,7 @@ const json = (body: unknown, status = 200) =>
 const clean = (v: unknown, max: number) => String(v ?? "").trim().slice(0, max);
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 
-export async function onRequestPost({ request, env }: Ctx): Promise<Response> {
+export async function handleContact(request: Request, env: Env): Promise<Response> {
   let data: Record<string, unknown>;
   const type = request.headers.get("Content-Type") || "";
   try {
@@ -62,6 +62,3 @@ export async function onRequestPost({ request, env }: Ctx): Promise<Response> {
   return json({ ok: true });
 }
 
-export async function onRequest(): Promise<Response> {
-  return new Response("Method Not Allowed", { status: 405, headers: { Allow: "POST" } });
-}
